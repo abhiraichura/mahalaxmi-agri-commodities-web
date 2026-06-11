@@ -1,38 +1,39 @@
-import { useEffect, useState } from 'react'
-import { Routes, Route, useLocation } from 'react-router-dom'
-import Preloader from './components/Preloader'
-import CustomCursor from './components/CustomCursor'
-import GrainOverlay from './components/GrainOverlay'
-import Navbar from './components/Navbar'
-import Home from './pages/Home'
-import About from './pages/About'
-import Products from './pages/Products'
-import Contact from './pages/Contact'
+// src/App.tsx
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { Navbar } from './components/Navbar';
+import { Footer } from './components/Footer';
+import { CopyrightBar } from './components/CopyrightBar';
+import { BottomNav } from './components/BottomNav';
+
+import { Home } from './pages/Home';
+import { Products } from './pages/Products';
+import { About } from './pages/About';
+import { Contact } from './pages/Contact';
 
 function App() {
-  const [loaded, setLoaded] = useState(false)
-  const location = useLocation()
+  const location = useLocation();
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [location.pathname])
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
 
   return (
-    <>
-      <Preloader onComplete={() => setLoaded(true)} />
-      {loaded && <CustomCursor />}
-      <GrainOverlay />
+    <div className="min-h-screen bg-white relative font-sans flex flex-col overflow-x-hidden">
       <Navbar />
-      <main>
+      <main className="flex-grow pt-20">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
           <Route path="/products" element={<Products />} />
+          <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>
-    </>
-  )
+      <Footer />
+      <CopyrightBar />
+      <BottomNav />
+    </div>
+  );
 }
 
-export default App
+export default App;
