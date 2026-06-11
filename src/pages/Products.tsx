@@ -75,12 +75,13 @@ const allProducts = [
     category: 'Cotton',
     name: 'Cotton Seed',
     image: 'https://images.unsplash.com/photo-1594890899742-0d5c8e0b2e0a?w=600&h=400&fit=crop',
-    desc: 'High-quality cotton seed for oil extraction and cattle feed. Sourced from Gujarat's cotton belt.',
+    desc: 'High-quality cotton seed for oil extraction and cattle feed. Sourced from Gujarat\'s cotton belt.',
   },
 ]
 
 export default function Products() {
   const [activeFilter, setActiveFilter] = useState('All')
+  const headingClass = "text-[clamp(1.75rem,7vw,4.2rem)] sm:text-[clamp(2.5rem,5vw,4.2rem)] font-medium leading-[1.08] tracking-[-0.03em] text-gray-900 max-w-[800px]";
 
   const filtered = activeFilter === 'All' 
     ? allProducts 
@@ -103,9 +104,9 @@ export default function Products() {
               </span>
               <span className="text-[12px] sm:text-[13px] font-medium border border-gray-200 rounded-full px-3 sm:px-4 py-1 sm:py-1.5">Our Portfolio</span>
             </div>
-            <h1 className={`text-[clamp(1.75rem,7vw,4.2rem)] sm:text-[clamp(2.5rem,5vw,4.2rem)] font-medium leading-[1.08] tracking-[-0.03em] text-gray-900 max-w-[800px]`}>
-  Commodities we broker
-</h1>
+            <h1 className={headingClass}>
+              Commodities we broker
+            </h1>
             <p className="mt-5 sm:mt-6 max-w-[600px] text-[15px] sm:text-[17px] text-gray-600 leading-[1.65] font-medium">
               From the spice markets of Unjha to the oil seed belts of Gujarat, we broker premium agri commodities that meet international export standards.
             </p>
@@ -156,7 +157,9 @@ export default function Products() {
                   <div className="p-5 sm:p-6">
                     <span className="text-[11px] sm:text-[12px] font-bold text-brand-pink uppercase tracking-[0.08em]">{product.category}</span>
                     <h3 className="text-[16px] sm:text-[17px] font-bold text-gray-900 mt-1 mb-2">{product.name}</h3>
-                    <p className="text-[13px] sm:text-[14px] text-gray-600 leading-[1.6]">{product.desc}</p>
+                    <p className="text-[13px] sm:text-[14px] text-gray-600 leading-[1.6]">
+                      {product.desc}
+                    </p>
                   </div>
                 </div>
               </ScrollReveal>
