@@ -60,12 +60,12 @@ export default function About() {
               </span>
               <span className="text-[12px] sm:text-[13px] font-medium border border-gray-200 rounded-full px-3 sm:px-4 py-1 sm:py-1.5">About Us</span>
             </div>
-            <h1 className="text-[clamp(1.75rem,7vw,4.2rem)] sm:text-[clamp(2.5rem,5vw,4.2rem)] font-medium leading-[1.08] tracking-[-0.03em] text-gray-900 max-w-[800px]">
-              Two decades of trust in Indian agri trade
-            </h1>
-            <p className="mt-5 sm:mt-6 max-w-[600px] text-[15px] sm:text-[17px] text-gray-600 leading-[1.65] font-medium">
-              Founded in 2005 by Kishan Raichura, Mahalaxmi Agri Commodities has grown into one of Rajkot's most respected agri commodity brokerage firms.
-            </p>
+            <h1 className={`text-[clamp(1.75rem,7vw,4.2rem)] sm:text-[clamp(2.5rem,5vw,4.2rem)] font-medium leading-[1.08] tracking-[-0.03em] text-gray-900 max-w-[800px]`}>
+  Two decades of trust in Indian agri trade
+</h1>
+<p className="mt-5 sm:mt-6 max-w-[600px] text-[15px] sm:text-[17px] text-gray-600 leading-[1.65] font-medium">
+  Founded in 2005 by Kishan Raichura, Mahalaxmi Agri Commodities has grown into one of Rajkot&apos;s most respected agri commodity brokerage firms.
+</p>
           </ScrollReveal>
         </div>
       </section>
