@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { Shield, Award, Users, Clock, TrendingUp, MessageSquare, BookOpen } from 'lucide-react'
+import { Shield, Award, Users, Clock, TrendingUp, MessageSquare, BookOpen, ArrowUpRight } from 'lucide-react'
 import ScrollReveal from '../components/ScrollReveal'
 
 function TextRoll({ text }: { text: string }) {
