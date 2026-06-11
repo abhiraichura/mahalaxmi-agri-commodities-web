@@ -103,9 +103,9 @@ export default function Products() {
               </span>
               <span className="text-[12px] sm:text-[13px] font-medium border border-gray-200 rounded-full px-3 sm:px-4 py-1 sm:py-1.5">Our Portfolio</span>
             </div>
-            <h1 className="text-[clamp(1.75rem,7vw,4.2rem)] sm:text-[clamp(2.5rem,5vw,4.2rem)] font-medium leading-[1.08] tracking-[-0.03em] text-gray-900 max-w-[800px]">
-              Commodities we broker
-            </h1>
+            <h1 className={`text-[clamp(1.75rem,7vw,4.2rem)] sm:text-[clamp(2.5rem,5vw,4.2rem)] font-medium leading-[1.08] tracking-[-0.03em] text-gray-900 max-w-[800px]`}>
+  Commodities we broker
+</h1>
             <p className="mt-5 sm:mt-6 max-w-[600px] text-[15px] sm:text-[17px] text-gray-600 leading-[1.65] font-medium">
               From the spice markets of Unjha to the oil seed belts of Gujarat, we broker premium agri commodities that meet international export standards.
             </p>
