@@ -6,25 +6,10 @@
 
 @layer base {
   body {
-    @apply bg-brand-black text-brand-light font-sans antialiased overflow-x-hidden;
-    cursor: default;
+    @apply bg-white text-brand-slate font-sans antialiased overflow-x-hidden;
   }
 }
 
 ::selection {
   @apply bg-brand-pink text-white;
-}
-
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  @apply bg-brand-black;
-}
-::-webkit-scrollbar-thumb {
-  @apply bg-brand-pink/50 rounded-full hover:bg-brand-pink;
-}
-
-.glass-panel {
-  @apply bg-brand-dark/60 backdrop-blur-xl border border-white/5 shadow-2xl;
 }
