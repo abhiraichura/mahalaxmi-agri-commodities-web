@@ -1,33 +1,41 @@
-// src/components/Navbar.tsx
-import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Button } from './Button';
+import { motion } from 'framer-motion';
 
-export const Navbar: React.FC = () => {
+export const Navbar = () => {
   const location = useLocation();
-  
+
   const links = [
     { name: 'Home', path: '/' },
-    { name: 'Commodities', path: '/products' },
     { name: 'About Us', path: '/about' },
+    { name: 'Services', path: '/services' },
     { name: 'Contact', path: '/contact' },
   ];
 
   return (
-    <nav className="fixed top-0 w-full bg-white/80 backdrop-blur-md z-50 border-b border-gray-100">
-      <div className="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">
-        <Link to="/" className="flex items-center gap-3">
-          <img src="/logo.png" alt="Mahalaxmi" className="h-10 object-contain" onError={(e) => { e.currentTarget.style.display='none'; }} />
-          <span className="text-xl font-bold text-brand-dark tracking-tighter uppercase hidden sm:block">Mahalaxmi</span>
+    <motion.nav 
+      initial={{ y: -100 }}
+      animate={{ y: 0 }}
+      transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+      className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-lg border-b border-gray-100"
+    >
+      <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+        <Link to="/" className="flex items-center gap-3 group">
+          <img 
+            src="/logo.png" 
+            alt="Mahalaxmi Logo" 
+            className="h-12 w-auto object-contain group-hover:scale-105 transition-transform duration-300"
+            onError={(e) => { e.currentTarget.style.display = 'none'; }}
+          />
+          <span className="text-2xl font-bold tracking-tight text-brand-dark">Mahalaxmi</span>
         </Link>
-        
-        <div className="hidden md:flex items-center gap-8">
+
+        <div className="hidden md:flex items-center gap-10">
           {links.map((link) => (
             <Link 
-              key={link.name} 
+              key={link.path} 
               to={link.path}
-              className={`text-sm font-bold uppercase tracking-widest transition-colors ${
-                location.pathname === link.path ? 'text-brand-pink' : 'text-brand-dark hover:text-brand-pink'
+              className={`text-sm font-semibold tracking-wide uppercase transition-colors hover:text-brand-pink ${
+                location.pathname === link.path ? 'text-brand-pink' : 'text-brand-dark'
               }`}
             >
               {link.name}
@@ -35,12 +43,13 @@ export const Navbar: React.FC = () => {
           ))}
         </div>
 
-        <Link to="/contact">
-          <Button variant="primary" className="!py-2 !px-5 !text-sm hidden sm:flex">
-            Client Portal
-          </Button>
+        <Link 
+          to="/contact" 
+          className="bg-brand-pink text-white px-8 py-3 rounded-full font-bold shadow-agency-pink hover:scale-105 transition-transform duration-300 hidden sm:block"
+        >
+          Trade Desk
         </Link>
       </div>
-    </nav>
+    </motion.nav>
   );
 };
