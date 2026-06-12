@@ -1,83 +1,88 @@
-// src/pages/Home.tsx
-import React from 'react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight, Shield, Globe2, TrendingUp } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Button } from '../components/Button';
-import { useInViewAnimation } from '../hooks/useInViewAnimation';
 
-export const Home: React.FC = () => {
-  const taglineRef = useInViewAnimation('0.1s');
-  const headingRef = useInViewAnimation('0.2s');
-  const descRef = useInViewAnimation('0.3s');
-  const btnsRef = useInViewAnimation('0.4s');
-  const card1Ref = useInViewAnimation('0.1s');
-  const card2Ref = useInViewAnimation('0.2s');
+const stagger = {
+  animate: { transition: { staggerChildren: 0.1 } }
+};
 
+const fadeUp = {
+  initial: { opacity: 0, y: 40 },
+  animate: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.16, 1, 0.3, 1] } }
+};
+
+export const Home = () => {
   return (
-    <div className="flex flex-col w-full">
-      <section className="mx-auto max-w-[600px] px-6 pt-16 md:pt-32 pb-24 text-center flex flex-col items-center">
-        <div ref={taglineRef} className="opacity-0 font-mono text-xs md:text-sm text-brand-muted mb-6 uppercase tracking-[0.2em] font-semibold">
-          Global Reach. Local Roots.
-        </div>
-        
-        <h1 ref={headingRef} className="opacity-0 text-[40px] md:text-[56px] lg:text-[64px] leading-[1.05] text-brand-darker font-bold tracking-tight mb-8">
-          Securing the future of <br /> global commodities.
-        </h1>
-        
-        <div ref={descRef} className="opacity-0 flex flex-col gap-6 text-base md:text-lg text-brand-dark leading-relaxed font-medium max-w-[480px]">
-          <p>
-            Premier agriculture commodity brokerage bringing absolute transparency and efficiency to the global supply chain.
-          </p>
-        </div>
-        
-        <div ref={btnsRef} className="opacity-0 flex flex-col sm:flex-row justify-center gap-4 mt-10">
-          <Link to="/products">
-            <Button variant="primary">View Commodities</Button>
-          </Link>
-          <Link to="/contact">
-            <Button variant="secondary">Speak to a Broker</Button>
-          </Link>
-        </div>
+    <motion.div initial="initial" animate="animate" exit={{ opacity: 0 }}>
+      {/* Hero Section */}
+      <section className="relative px-6 py-20 md:py-32 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+        <motion.div variants={stagger} className="lg:w-1/2">
+          <motion.div variants={fadeUp} className="inline-block border border-brand-pink/20 bg-brand-pink/5 text-brand-pink px-4 py-1.5 rounded-full text-sm font-bold tracking-widest uppercase mb-8">
+            Global Trade. Local Roots.
+          </motion.div>
+          <motion.h1 variants={fadeUp} className="text-5xl md:text-7xl font-bold tracking-tighter leading-[1.05] text-brand-slate mb-8">
+            Cultivating the <br />
+            <span className="text-brand-pink">future of bulk</span> <br />
+            commodities.
+          </motion.h1>
+          <motion.p variants={fadeUp} className="text-lg md:text-xl text-brand-muted font-medium max-w-lg mb-10 leading-relaxed">
+            We are a premier B2B brokerage bridging India's finest agricultural yield with global export houses. Transparency, volume, and absolute quality control.
+          </motion.p>
+          <motion.div variants={fadeUp} className="flex flex-wrap gap-4">
+            <Link to="/contact" className="bg-brand-dark text-white px-8 py-4 rounded-full font-bold shadow-agency-soft hover:bg-brand-pink transition-colors duration-300">
+              Partner with us
+            </Link>
+            <Link to="/about" className="bg-white border border-gray-200 text-brand-slate px-8 py-4 rounded-full font-bold hover:border-brand-pink hover:text-brand-pink transition-colors duration-300">
+              Our Story
+            </Link>
+          </motion.div>
+        </motion.div>
+
+        <motion.div variants={fadeUp} className="lg:w-1/2 w-full">
+          <div className="relative aspect-[4/5] rounded-[40px] overflow-hidden shadow-2xl">
+            <img 
+              src="https://images.unsplash.com/photo-1595805210986-1d137b01b63d?q=80&w=1200&auto=format&fit=crop" 
+              alt="Agriculture" 
+              className="object-cover w-full h-full hover:scale-105 transition-transform duration-1000"
+            />
+          </div>
+        </motion.div>
       </section>
 
-      <section className="w-full py-20 px-6 bg-gray-50/50">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-[1200px] mx-auto">
-          <div ref={card1Ref} className="opacity-0 bg-brand-dark rounded-[40px] px-10 md:pr-24 pt-12 pb-10 shadow-premium-inset flex flex-col justify-between h-[420px]">
-            <div>
-              <h3 className="text-[32px] font-bold text-white mb-4 tracking-tight">Commodity Sourcing</h3>
-              <p className="text-brand-light/80 font-medium text-lg leading-relaxed">
-                Direct procurement of premium grade agriculture products.
-              </p>
-            </div>
-            <div>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-brand-pink tracking-tighter">Global</span>
-                <p className="text-brand-light/60 text-sm mt-1 uppercase tracking-[0.2em] font-semibold">Network</p>
-              </div>
-              <Link to="/products">
-                <Button variant="primary">Explore</Button>
-              </Link>
-            </div>
+      {/* Services Grid (Agency Style) */}
+      <section className="bg-brand-light py-32 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter text-brand-slate">
+              Institutional scale.<br/><span className="text-brand-muted font-light">Boutique execution.</span>
+            </h2>
+            <Link to="/services" className="group flex items-center gap-2 text-brand-pink font-bold hover:opacity-80 transition-opacity">
+              View all services <ArrowUpRight className="w-5 h-5 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </Link>
           </div>
 
-          <div ref={card2Ref} className="opacity-0 bg-white rounded-[40px] px-10 md:pr-24 pt-12 pb-10 shadow-premium-dark flex flex-col justify-between h-[420px]">
-            <div>
-              <h3 className="text-[32px] font-bold text-brand-darker mb-4 tracking-tight">Market Advisory</h3>
-              <p className="text-brand-muted font-medium text-lg leading-relaxed">
-                Real-time analytics and rigorous risk management for global buyers.
-              </p>
-            </div>
-            <div>
-              <div className="mb-6">
-                <span className="text-4xl font-bold text-brand-dark tracking-tighter">24/7</span>
-                <p className="text-brand-muted text-sm mt-1 uppercase tracking-[0.2em] font-semibold">Live Intelligence</p>
-              </div>
-              <Link to="/contact">
-                <Button variant="tertiary">Get Insights</Button>
-              </Link>
-            </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { icon: Globe2, title: 'Global Sourcing', desc: 'Direct connections with vetted growers ensuring premium baseline quality before processing.' },
+              { icon: Shield, title: 'Risk Management', desc: 'Navigating price volatility and domestic supply shocks to lock in your cost-basis.' },
+              { icon: TrendingUp, title: 'Logistics & Export', desc: 'Seamless FOB/CIF coordination out of major Indian ports for absolute peace of mind.' }
+            ].map((service, i) => (
+              <motion.div 
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.2, duration: 0.8 }}
+                className="bg-white p-10 rounded-[32px] shadow-agency-soft hover:shadow-xl transition-shadow duration-300 border border-gray-50"
+              >
+                <service.icon className="w-12 h-12 text-brand-pink mb-8" />
+                <h3 className="text-2xl font-bold text-brand-slate mb-4">{service.title}</h3>
+                <p className="text-brand-muted font-medium leading-relaxed">{service.desc}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
-    </div>
+    </motion.div>
   );
 };
