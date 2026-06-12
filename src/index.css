@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600;700;800&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,27 +6,25 @@
 
 @layer base {
   body {
-    @apply bg-white text-brand-dark font-sans antialiased selection:bg-brand-pink selection:text-white overflow-x-hidden;
+    @apply bg-brand-black text-brand-light font-sans antialiased overflow-x-hidden;
+    cursor: default;
   }
 }
 
-@keyframes fadeInUp {
-  0% { opacity: 0; transform: translateY(30px); }
-  100% { opacity: 1; transform: translateY(0); }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-  opacity: 0;
+::selection {
+  @apply bg-brand-pink text-white;
 }
 
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: transparent;
+  @apply bg-brand-black;
 }
 ::-webkit-scrollbar-thumb {
-  background: #e2e8f0;
-  border-radius: 4px;
+  @apply bg-brand-pink/50 rounded-full hover:bg-brand-pink;
+}
+
+.glass-panel {
+  @apply bg-brand-dark/60 backdrop-blur-xl border border-white/5 shadow-2xl;
 }
