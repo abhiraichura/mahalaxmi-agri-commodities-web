@@ -9,15 +9,15 @@ export default {
       colors: {
         brand: {
           pink: '#DE2A72',
-          black: '#030712',
-          dark: '#0B1120',
-          slate: '#1E293B',
-          gray: '#94A3B8',
-          light: '#F8FAFC'
+          dark: '#051A24',
+          slate: '#0F172A',
+          muted: '#64748B',
+          light: '#F8FAFC',
         }
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+      boxShadow: {
+        'agency-soft': '0 4px 40px -2px rgba(0, 0, 0, 0.05)',
+        'agency-pink': '0 1px 2px 0 rgba(222,42,114,0.1), 0 4px 4px 0 rgba(222,42,114,0.09), 0 9px 6px 0 rgba(222,42,114,0.05), 0 17px 7px 0 rgba(222,42,114,0.01), 0 26px 7px 0 rgba(222,42,114,0), inset 0 2px 8px 0 rgba(255,255,255,0.4)',
       }
     },
   },
