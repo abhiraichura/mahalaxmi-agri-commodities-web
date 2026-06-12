@@ -1,5 +1,5 @@
 import { useRef, useMemo } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import { Canvas, useFrame, RootState } from '@react-three/fiber';
 import { Points, PointMaterial } from '@react-three/drei';
 import * as THREE from 'three';
 
@@ -17,7 +17,8 @@ const ParticleField = () => {
     return positions;
   }, []);
 
-  useFrame((state, delta) => {
+  // Explicit types added here to satisfy the Vercel TS Compiler
+  useFrame((state: RootState, delta: number) => {
     if (ref.current) {
       ref.current.rotation.x -= delta / 20;
       ref.current.rotation.y -= delta / 30;
